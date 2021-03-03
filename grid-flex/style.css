@@ -1,0 +1,33 @@
+.card {
+  display: flex;
+  flex-flow: column;
+  border: 1px solid black;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin: 1rem 0;
+}
+.deals {
+  font-family: Avenir, Roboto, Helvetica, san-serif;
+  font-size: 80%;
+}
+
+/* supports query to only use grid if supported by browser */
+@supports (display: grid) {
+  .body {
+    max-width: 10000px;
+    margin: 0;
+  }
+  .card {
+    margin: 0;
+  }
+  .deals {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* min of 300px, max of sharing space i.e.. 1fr */
+    grid-gap: 1rem;
+  }
+}
+/* move card to top in visual order */
+.card > img {
+  order: -1;
+  align-self: center;
+}
